@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_investment_module,access_investment_module,model_investment_module,base.group_user,1,1,1,1
+access_investment_benefit,access_investment_benefit,model_investment_benefit,base.group_user,1,1,1,1

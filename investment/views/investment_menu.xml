@@ -1,0 +1,9 @@
+<odoo>
+    <menuitem id="investment_menu_root" name="Investment">
+        <menuitem id="investment_first_level_menu" name="Investment">
+            <menuitem id="investment_module_menu_action" action="investment_module_action"/>
+            <menuitem id="investment_benefit_menu_action" action="investment_benefit_action"/>
+        </menuitem>
+    </menuitem>
+</odoo>
+

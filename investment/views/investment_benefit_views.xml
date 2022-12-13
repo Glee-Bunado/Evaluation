@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+     <record id="investment_module_view_tree" model="ir.ui.view">
+        <field name="name">investment.module.view.tree</field>
+        <field name="model">investment.module</field>
+        <field name="arch" type="'xml">
+             <tree>
+                <field name="partner_id"/>
+                <field name="currency_id"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="benefit_value"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="investment_module_view_form" model="ir.ui.view">
+        <field name="name">investment.module.view.form</field>
+        <field name="model">investment.module</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="partner_id"/>
+                        <field name="currency_id"/>
+                        <field name="date_start"/>
+                    </group>
+
+                    <group>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="investment_benefit_action" model="ir.actions.act_window">
+        <field name="name">Benefits</field>
+        <field name="res_model">investment.benefit</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>
