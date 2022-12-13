@@ -3,7 +3,7 @@
 
      <record id="investment_module_view_tree" model="ir.ui.view">
         <field name="name">investment.module.view.tree</field>
-        <field name="model">investment.module</field>
+        <field name="model">investment.benefit</field>
         <field name="arch" type="'xml">
              <tree>
                 <field name="partner_id"/>
@@ -18,7 +18,7 @@
 
     <record id="investment_module_view_form" model="ir.ui.view">
         <field name="name">investment.module.view.form</field>
-        <field name="model">investment.module</field>
+        <field name="model">investment.benefit</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>

@@ -15,4 +15,7 @@ class InvestmentBenefit(models.Model):
     @api.depends("investment_ids")
     def _benefit_amt(self):
         for rec in self:
+            rec.benefit_value = 0.50 * rec.investment_ids.price
+
+
 
