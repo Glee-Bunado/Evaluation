@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-
-     <record id="investment_module_view_tree" model="ir.ui.view">
-        <field name="name">investment.module.view.tree</field>
+    <data>
+     <record id="investment_benefit_view_tree" model="ir.ui.view">
+        <field name="name">investment.benefit.view.tree</field>
         <field name="model">investment.benefit</field>
-        <field name="arch" type="'xml">
+        <field name="arch" type="xml">
              <tree>
                 <field name="partner_id"/>
                 <field name="currency_id"/>
@@ -16,8 +16,8 @@
     </record>
 
 
-    <record id="investment_module_view_form" model="ir.ui.view">
-        <field name="name">investment.module.view.form</field>
+    <record id="investment_benefit_view_form" model="ir.ui.view">
+        <field name="name">investment.benefit.view.form</field>
         <field name="model">investment.benefit</field>
         <field name="arch" type="xml">
             <form>
@@ -25,7 +25,8 @@
                     <group>
                         <field name="partner_id"/>
                         <field name="currency_id"/>
-                        <field name="date_start"/>
+                        <field name="benefit_value"/>
+                        <field name="investment_id"/>
                     </group>
 
                     <group>
@@ -33,6 +34,7 @@
                         <field name="date_end"/>
                     </group>
                 </sheet>
+
             </form>
         </field>
     </record>
@@ -41,5 +43,6 @@
         <field name="res_model">investment.benefit</field>
         <field name="view_mode">tree,form</field>
     </record>
+    </data>
 
 </odoo>

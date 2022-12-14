@@ -1,9 +1,9 @@
 <odoo>
-
+    <data>
     <record id="investment_module_view_tree" model="ir.ui.view">
         <field name="name">investment.module.view.tree</field>
         <field name="model">investment.module</field>
-        <field name="arch" type="'xml">
+        <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
                 <field name="date"/>
@@ -36,11 +36,12 @@
         </field>
     </record>
 
+
      <record id="investment_module_action" model="ir.actions.act_window">
         <field name="name">Investment</field>
         <field name="res_model">investment.module</field>
         <field name="view_mode">tree,form</field>
     </record>
-
+    </data>
 </odoo>
 
