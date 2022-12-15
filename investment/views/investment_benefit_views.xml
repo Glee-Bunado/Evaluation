@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <data>
+
      <record id="investment_benefit_view_tree" model="ir.ui.view">
         <field name="name">investment.benefit.view.tree</field>
         <field name="model">investment.benefit</field>
         <field name="arch" type="xml">
              <tree>
-                <field name="partner_id"/>
-                <field name="currency_id"/>
-                <field name="date_start"/>
-                <field name="date_end"/>
-                <field name="benefit_value"/>
+                 <field name="partner_id"/>
+                 <field name="currency_id"/>
+                 <field name="date_start"/>
+                 <field name="date_end"/>
+                 <field name="registered_benefits"/>
+                 <field name="benefit_value"/>
             </tree>
         </field>
     </record>
@@ -30,6 +31,8 @@
                     </group>
 
                     <group>
+                        <field name="registered_benefits"/>
+                        <field name="investment_start"/>
                         <field name="date_start"/>
                         <field name="date_end"/>
                     </group>
@@ -38,11 +41,49 @@
             </form>
         </field>
     </record>
+    <record id="investment_benefit_view_kanban" model="ir.ui.view">
+        <field name="name">investment.benefit.view.kanban</field>
+        <field name="model">investment.benefit</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div>
+                            <strong class="o_kanban_record_title">
+                                <field name="partner_id"/>
+                            </strong>
+                            <div t-if="record.total_benefit.raw_value">
+                                Total Benefits: <field name="total_benefit"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="investment_benefit_view_search" model="ir.ui.view">
+        <field name="name">investment.benefit.view.search</field>
+        <field name="model">investment.benefit</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="partner_id"/>
+                <field name="currency_id"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="registered_benefits"/>
+                <field name="benefit_value"/>
+                <group expand="1" string="Filters">
+                    <filter name="date_start" string="Last Month" domain="[('date_start','<=', (context_today()-relativedelta(day=31, months=1)).strftime('%Y-%m-%d'))]"/>
+                </group>
+            </search>
+        </field>
+    </record>
     <record id="investment_benefit_action" model="ir.actions.act_window">
         <field name="name">Benefits</field>
         <field name="res_model">investment.benefit</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,kanban</field>
     </record>
-    </data>
+
 
 </odoo>
